@@ -2,6 +2,7 @@ package com.example.DHFirstSpringBootArtifact;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,6 +50,7 @@ class RestApiDemoController{
 
 	public RestApiDemoController(){
 		// 객체 생성 시 생성자로 커피 목록을 초기화한다.
+
 		coffees.addAll(List.of(
 				new Coffee("Cafe Cereza"),
 				new Coffee("Cafe Ganador"),
@@ -57,7 +59,7 @@ class RestApiDemoController{
 		));
 	}
 
-	@RequestMapping(value = "/coffees", method = RequestMethod.GET)
+	@GetMapping("/coffees")
 	Iterable<Coffee> getCoffees(){
 		return coffees;
 	}
